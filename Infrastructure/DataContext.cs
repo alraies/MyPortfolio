@@ -16,13 +16,14 @@ namespace Infrastructure
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Owner>().Property(x => x.Id).HasDefaultValue("NEWID()");
-            modelBuilder.Entity<PortfoiloItem>().Property(x => x.Id).HasDefaultValue("NEWID()");
+            modelBuilder.Entity<Owner>().Property(x => x.Id).HasDefaultValueSql("NEWID()");
+            modelBuilder.Entity<PortfoiloItem>().Property(x => x.Id).HasDefaultValueSql("NEWID()");
             modelBuilder.Entity<Owner>().HasData(
                 new Owner()
                 {
                     Id=Guid.NewGuid(),
                     Avatar="avatar.jpg",
+                    Video="video.mp4",
                     FullName="Alraies Makktof",
                     Profile="Backend Web Programmer"
                 }

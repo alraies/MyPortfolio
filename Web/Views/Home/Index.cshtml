@@ -1,6 +1,7 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
+@model HomeVewModel
 @{
 }
 
@@ -14,19 +15,22 @@
                 </div>
                 <div class="gallery-section">
                     <div class="gallery-list owl-carousel">
-                        <div class="item animate" data-animate="fadeInUp">
-                            <div class="portfolio-item">
-                                <div class="thumb">
-                                    <img src="~/images/item-1.jpg" alt="">
-                                </div>
-                                <div class="thumb-inner animate" data-animate="fadeInUp">
-                                    <h4>templatemo is the best</h4>
-                                    <p>Please tell your friends about it. Templatemo is the best website to download free Bootstrap CSS templates.</p>
+                        @foreach (var portfolioitem in Model.PortfolioItems)
+                        {
+                            <div class="item animate" data-animate="fadeInUp">
+                                <div class="portfolio-item">
+                                    <div class="thumb">
+                                        <img src="~/images/@portfolioitem.ImageUrl" alt="">
+                                    </div>
+                                    <div class="thumb-inner animate" data-animate="fadeInUp">
+                                        <h4>@portfolioitem.Description</h4>
+                                        <p>Please tell your friends about it. Templatemo is the best website to download free Bootstrap CSS templates.</p>
+                                    </div>
                                 </div>
                             </div>
+                        }
                         </div>
-                       
-                    </div>
+                 
                 </div>
             </div>
         </div>

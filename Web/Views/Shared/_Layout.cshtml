@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@model HomeVewModel
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -9,7 +10,7 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,700,900" rel="stylesheet">
 
-    <title>Elegance - Creative HTML5 Template</title>
+    <title>@Model.Owner.FullName</title>
     <!--
     Elegance Template
     https://templatemo.com/tm-528-elegance
@@ -45,8 +46,8 @@
         <header id="header">
             <div class="container-fluid">
                 <div class="navbar">
-                    <a href="#" id="logo" title="Elegance by TemplateMo">
-                        Elegance
+                    <a href="#" id="logo" title="@Model.Owner.FullName">
+                        @Model.Owner.FullName
                     </a>
                     <div class="navigation-row">
                         <nav id="navigation">
@@ -69,7 +70,7 @@
         </header>
 
         <video autoplay muted loop id="myVideo">
-            <source src="~/images/video-bg.mp4" type="video/mp4">
+            <source src="~/images/@Model.Owner.Video" type="video/mp4">
         </video>
 
         <div id="fullpage" class="fullpage-default">
