@@ -17,20 +17,21 @@ namespace Infrastructure
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Owner>().Property(x => x.Id).HasDefaultValueSql("NEWID()");
-            modelBuilder.Entity<PortfoiloItem>().Property(x => x.Id).HasDefaultValueSql("NEWID()");
+            modelBuilder.Entity<PortfolioItem>().Property(x => x.Id).HasDefaultValueSql("NEWID()");
             modelBuilder.Entity<Owner>().HasData(
                 new Owner()
                 {
                     Id=Guid.NewGuid(),
-                    Avatar="avatar.jpg",
+                  
                     Video="video.mp4",
                     FullName="Alraies Makktof",
                     Profile="Backend Web Programmer"
                 }
                 );
+           
         }
         public DbSet<Owner> Owners { get; set; }
-        public DbSet<PortfoiloItem> portfoiloItems { get; set; }
+        public DbSet<PortfolioItem> portfoiloItems { get; set; }
        
         
     }

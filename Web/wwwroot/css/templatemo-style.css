@@ -44,7 +44,7 @@ img {
   max-width: 100%;
 }
 html {
-  -ms-overflow-style: scrollbar;
+  overflow-y:auto;
 }
 .alltrans,
 .social-icons li a,
@@ -135,6 +135,9 @@ video {
   bottom: 0;
   min-width: 100%; 
   min-height: 100%;
+}
+html, body {
+    overflow: initial !important;
 }
 #video:after {
   content: '';

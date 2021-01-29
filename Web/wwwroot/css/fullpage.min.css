@@ -94,12 +94,12 @@ html.fp-enabled {
 }
 
 .fp-scrollable {
-    overflow: hidden;
+    
     position: relative
 }
 
 .fp-scroller {
-    overflow: hidden
+   
 }
 
 .iScrollIndicator {

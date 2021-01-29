@@ -6,7 +6,7 @@ namespace Core.Entities
     {
         public String FullName { get; set; }
         public String Profile { get; set; }
-        public String Avatar { get; set; }
+       
         public String Video { get; set; }
         public Address Address { get; set; }
 

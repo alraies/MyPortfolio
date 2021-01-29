@@ -15,7 +15,7 @@ namespace Infrastructure.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.0.0")
+                .HasAnnotation("ProductVersion", "3.1.11")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -49,9 +49,6 @@ namespace Infrastructure.Migrations
                     b.Property<Guid?>("AddressId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Avatar")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("FullName")
                         .HasColumnType("nvarchar(max)");
 
@@ -70,15 +67,14 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("78b8e65f-1a90-4f51-9e73-b53703540145"),
-                            Avatar = "avatar.jpg",
+                            Id = new Guid("129769a9-a6e2-4bb3-aa00-dadc0611ad13"),
                             FullName = "Alraies Makktof",
                             Profile = "Backend Web Programmer",
                             Video = "video.mp4"
                         });
                 });
 
-            modelBuilder.Entity("Core.Entities.PortfoiloItem", b =>
+            modelBuilder.Entity("Core.Entities.PortfolioItem", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()

@@ -1,4 +1,4 @@
-﻿@model HomeVewModel
+﻿
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,700,900" rel="stylesheet">
 
-    <title>@Model.Owner.FullName</title>
+
     <!--
     Elegance Template
     https://templatemo.com/tm-528-elegance
@@ -18,8 +18,7 @@
     <!-- Additional CSS Files -->
     <link rel="stylesheet" type="text/css" href="~/css/bootstrap.min.css">
 
-    <link rel="stylesheet" type="text/css" href="~/css/font-awesome.css">
-
+  
     <link rel="stylesheet" type="text/css" href="~/css/fullpage.min.css">
 
     <link rel="stylesheet" type="text/css" href="~/css/owl.carousel.css">
@@ -29,11 +28,11 @@
     <link rel="stylesheet" href="~/css/templatemo-style.css">
 
     <link rel="stylesheet" href="~/css/responsive.css">
+    <link rel="stylesheet" href="~/fontawesome/css/all.css">
 
 </head>
 
-<body>
-
+<body style="overflow-y: scroll">
     <div id="video">
         <div class="preloader">
             <div class="preloader-bounce">
@@ -42,12 +41,12 @@
                 <span></span>
             </div>
         </div>
-       
+
         <header id="header">
             <div class="container-fluid">
                 <div class="navbar">
-                    <a href="#" id="logo" title="@Model.Owner.FullName">
-                        @Model.Owner.FullName
+                    <a href="#" id="logo" title="">
+                      
                     </a>
                     <div class="navigation-row">
                         <nav id="navigation">
@@ -70,13 +69,15 @@
         </header>
 
         <video autoplay muted loop id="myVideo">
-            <source src="~/images/@Model.Owner.Video" type="video/mp4">
+            <source src="~/images/video.mp4" type="video/mp4">
         </video>
 
         <div id="fullpage" class="fullpage-default">
 
-            @RenderBody()
 
+            <div>
+                @RenderBody()
+            </div>
 
         </div>
 
@@ -91,6 +92,8 @@
             </div>
         </div>
     </div>
+    
+    
 
     <script src="~/js/jquery.js"></script>
 

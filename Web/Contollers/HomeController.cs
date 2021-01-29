@@ -1,33 +1,41 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Core.Interfaces;
 using Core.Entities;
+using Core.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 using Web.ViewModels;
 
-namespace Web.Contollers
+namespace Web.Controllers
 {
     public class HomeController : Controller
     {
         private readonly IUnitOfWork<Owner> _owner;
-        private readonly IUnitOfWork<PortfoiloItem> _portfolioitems;
+        private readonly IUnitOfWork<PortfolioItem> _portfolio;
 
-        public HomeController(IUnitOfWork<Owner> owner,
-            IUnitOfWork<PortfoiloItem> portfolioitems)
+        public HomeController(
+            IUnitOfWork<Owner> owner,
+            IUnitOfWork<PortfolioItem> portfolio)
         {
-           _owner = owner;
-          _portfolioitems = portfolioitems;
+            _owner = owner;
+            _portfolio = portfolio;
         }
         public IActionResult Index()
         {
-            var homeviewmodel = new HomeVewModel
+            var homeViewModel = new HomeViewModel
             {
                 Owner = _owner.Entity.GetAll().First(),
-                PortfolioItems = _portfolioitems.Entity.GetAll().ToList()
+                PortfolioItems = _portfolio.Entity.GetAll().ToList()
             };
-          return View(homeviewmodel);
+
+            return View(homeViewModel);
         }
+
+        public IActionResult About()
+        {
+            return View();
+        }
+
     }
 }
