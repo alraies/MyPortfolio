@@ -17,18 +17,25 @@ namespace Web.Controllers
     public class PortfolioItemsController : Controller
     {
         private readonly IUnitOfWork<PortfolioItem> _portfolio;
+        private readonly IUnitOfWork<Owner> _owner;
         private readonly IHostingEnvironment _hosting;
 
-        public PortfolioItemsController(IUnitOfWork<PortfolioItem> portfolio, IHostingEnvironment hosting)
+        public PortfolioItemsController(IUnitOfWork<PortfolioItem> portfolio, IHostingEnvironment hosting, IUnitOfWork<Owner> owner)
         {
             _portfolio = portfolio;
             _hosting = hosting;
+            _owner = owner;
         }
 
         // GET: PortfolioItems
         public IActionResult Index()
         {
-            return View(_portfolio.Entity.GetAll());
+            var portfolioviewmodel = new HomeViewModel
+            {
+                Owner = _owner.Entity.GetAll().First(),
+                PortfolioItems = _portfolio.Entity.GetAll()
+            };
+            return View(portfolioviewmodel);
         }
 
         // GET: PortfolioItems/Details/5
@@ -128,7 +135,7 @@ namespace Web.Controllers
                 {
                     if (model.File != null)
                     {
-                        string uploads = Path.Combine(_hosting.WebRootPath, @"img\portfolio");
+                        string uploads = Path.Combine(_hosting.WebRootPath, @"images");
                         string fullPath = Path.Combine(uploads, model.File.FileName);
                         model.File.CopyTo(new FileStream(fullPath, FileMode.Create));
                     }

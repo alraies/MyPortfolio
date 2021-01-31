@@ -13,5 +13,6 @@ namespace Web.ViewModels
         public string Description { get; set; }
         public string ImageUrl { get; set; }
         public IFormFile File { get; set; }
+        
     }
 }
